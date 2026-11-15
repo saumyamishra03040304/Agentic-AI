@@ -1,0 +1,192 @@
+# MySQL Database
+
+MySQL is a popular relational database management system.
+
+It is used to store, organize, and manage data.
+
+MySQL uses SQL (Structured Query Language)
+to communicate with databases.
+
+MySQL is commonly used in web applications,
+backend development, and enterprise software.
+
+
+## 1. What is MySQL?
+
+MySQL stores data in tables.
+
+Each table contains rows and columns.
+
+Rows represent individual records,
+while columns represent different attributes.
+
+Example:
+
+A student table can contain:
+
+- Student ID
+- Student Name
+- Age
+- Email
+
+
+## 2. Creating a Database
+
+The CREATE DATABASE statement
+is used to create a new database.
+
+Example:
+
+```sql
+CREATE DATABASE college;
+```
+
+To select the database:
+
+```sql
+USE college;
+```
+
+
+## 3. Creating a Table
+
+The CREATE TABLE statement
+is used to create a table.
+
+Example:
+
+```sql
+CREATE TABLE students (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    age INT,
+    email VARCHAR(100)
+);
+```
+
+
+## 4. Inserting Data
+
+The INSERT INTO statement
+is used to add records to a table.
+
+Example:
+
+```sql
+INSERT INTO students
+    (id, name, age, email)
+VALUES
+    (1, 'Rahul', 22, 'rahul@example.com');
+```
+
+
+## 5. Selecting Data
+
+The SELECT statement
+is used to retrieve data from a table.
+
+Example:
+
+```sql
+SELECT * FROM students;
+```
+
+To retrieve specific columns:
+
+```sql
+SELECT name, age
+FROM students;
+```
+
+
+## 6. Filtering Data
+
+The WHERE clause is used
+to filter records based on a condition.
+
+Example:
+
+```sql
+SELECT *
+FROM students
+WHERE age > 20;
+```
+
+
+## 7. Updating Data
+
+The UPDATE statement
+is used to modify existing records.
+
+Example:
+
+```sql
+UPDATE students
+SET age = 23
+WHERE id = 1;
+```
+
+
+## 8. Deleting Data
+
+The DELETE statement
+is used to remove records from a table.
+
+Example:
+
+```sql
+DELETE FROM students
+WHERE id = 1;
+```
+
+
+## 9. Sorting Data
+
+The ORDER BY clause
+is used to sort records.
+
+Example:
+
+```sql
+SELECT *
+FROM students
+ORDER BY age ASC;
+```
+
+ASC means ascending order.
+
+DESC means descending order.
+
+
+## 10. Aggregate Functions
+
+Aggregate functions perform calculations
+on multiple records.
+
+Common aggregate functions:
+
+- COUNT()
+- SUM()
+- AVG()
+- MIN()
+- MAX()
+
+Example:
+
+```sql
+SELECT COUNT(*)
+FROM students;
+```
+
+
+## 11. Conclusion
+
+MySQL is an important skill
+for backend developers.
+
+Understanding databases,
+SQL queries, and relationships
+helps developers build reliable applications.
+
+Regular practice with SQL queries
+improves database skills.

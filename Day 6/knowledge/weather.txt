@@ -1,0 +1,109 @@
+# Weather Information
+
+Weather describes the condition of the atmosphere
+at a particular place and time.
+
+It includes temperature, humidity,
+rainfall, wind speed, and cloud conditions.
+
+Weather information helps people
+plan their daily activities,
+travel, and outdoor events.
+
+
+## 1. What is Weather?
+
+Weather refers to the atmospheric conditions
+that change from day to day.
+
+Examples of weather conditions:
+
+- Sunny
+- Rainy
+- Cloudy
+- Windy
+- Stormy
+- Snowy
+
+Weather forecasting helps predict
+future atmospheric conditions.
+
+
+## 2. What is a Weather API?
+
+A Weather API allows applications
+to retrieve weather information
+from an external service.
+
+Applications can use weather APIs
+to display current conditions
+and forecast information.
+
+Weather APIs commonly provide:
+
+- Temperature
+- Humidity
+- Weather description
+- Wind speed
+- Rain probability
+- Sunrise and sunset
+
+
+## 3. Python Libraries
+
+Python provides several libraries
+for working with weather information.
+
+Important libraries:
+
+- Requests
+- JSON
+- Flask
+- Streamlit
+
+The Requests library is commonly used
+to send HTTP requests
+to weather APIs.
+
+
+## 4. Installing Requests
+
+Install the Requests library
+using the following command:
+
+```bash
+pip install requests
+```
+
+
+## 5. Importing Libraries
+
+The Requests library helps
+communicate with external APIs.
+
+The JSON module helps process
+JSON-formatted data.
+
+Example:
+
+```python
+import requests
+import json
+```
+
+
+## 6. Getting Weather Information
+
+A weather API can provide
+current weather information
+for a specific city.
+
+Example:
+
+```python
+import requests
+
+city = "London"
+
+url = (
+    "https://api.open

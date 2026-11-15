@@ -1,0 +1,134 @@
+# Python Programming
+
+Python is a popular programming language.
+It is simple, powerful, and easy to learn.
+
+Python is used in many different fields:
+- Web Development
+- Artificial Intelligence
+- Machine Learning
+- Data Analysis
+- Automation
+
+
+## 1. Why Learn Python?
+
+Python helps developers solve real-world problems.
+
+It provides many useful libraries
+that make programming easier.
+
+Python is beginner-friendly
+and widely used in the software industry.
+
+
+## 2. Variables and Data Types
+
+Variables are used to store information.
+
+Python supports different data types:
+
+- Integer
+- Float
+- String
+- Boolean
+
+Example:
+
+```python
+name = "Rahul"
+age = 25
+height = 5.9
+is_student = True
+
+print(name)
+print(age)
+```
+
+
+## 3. Conditional Statements
+
+Conditional statements allow a program
+to make decisions.
+
+Python provides:
+
+- if
+- elif
+- else
+
+Example:
+
+```python
+age = 20
+
+if age >= 18:
+    print("You are an adult.")
+else:
+    print("You are a minor.")
+```
+
+
+## 4. Loops
+
+Loops are used to execute code
+multiple times.
+
+Python provides two main loops:
+
+- for loop
+- while loop
+
+Example:
+
+```python
+for number in range(1, 6):
+    print(number)
+```
+
+
+## 5. Functions
+
+Functions are reusable blocks of code.
+
+They help organize programs
+and reduce code repetition.
+
+Example:
+
+```python
+def greet(name):
+    print("Hello", name)
+
+greet("Rahul")
+```
+
+
+## 6. File Handling
+
+Python allows us to read
+and write files.
+
+File handling is useful
+for storing information permanently.
+
+Example:
+
+```python
+with open("python.txt", "r") as file:
+    content = file.read()
+
+print(content)
+```
+
+
+## 7. Conclusion
+
+Python is a valuable programming language
+for beginners and experienced developers.
+
+Regular practice helps improve
+programming skills.
+
+Learning Python step by step
+can help you build real-world projects.

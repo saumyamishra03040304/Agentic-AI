@@ -1,0 +1,223 @@
+# Machine Learning
+
+Machine Learning is a branch of Artificial Intelligence.
+
+It allows computers to learn from data
+and make predictions without being
+explicitly programmed for every task.
+
+Machine Learning is used in many fields:
+
+- Healthcare
+- Banking
+- Education
+- Recommendation Systems
+- Image Recognition
+- Fraud Detection
+
+
+## 1. What is Machine Learning?
+
+Machine Learning allows computers
+to identify patterns in data.
+
+Instead of writing rules for every situation,
+we provide data to a machine learning model.
+
+The model learns patterns
+and uses them to make predictions.
+
+Example:
+
+A machine learning model can learn
+to identify whether an email
+is spam or not spam.
+
+
+## 2. Types of Machine Learning
+
+Machine Learning has three main types:
+
+1. Supervised Learning
+2. Unsupervised Learning
+3. Reinforcement Learning
+
+
+## 3. Supervised Learning
+
+Supervised Learning uses labeled data.
+
+The model learns from input data
+and its corresponding correct output.
+
+Example:
+
+A model learns house prices
+using information such as:
+
+- House size
+- Number of rooms
+- Location
+- House price
+
+Common algorithms:
+
+- Linear Regression
+- Logistic Regression
+- Decision Tree
+- Random Forest
+- Support Vector Machine
+
+
+## 4. Unsupervised Learning
+
+Unsupervised Learning uses unlabeled data.
+
+The model identifies patterns
+and groups similar data together.
+
+Example:
+
+A company can group customers
+based on their shopping behavior.
+
+Common algorithms:
+
+- K-Means Clustering
+- Hierarchical Clustering
+- DBSCAN
+- Principal Component Analysis
+
+
+## 5. Reinforcement Learning
+
+Reinforcement Learning allows
+an agent to learn through interaction.
+
+The agent receives rewards
+or penalties based on its actions.
+
+Example:
+
+A robot learns how to move
+by trying different actions
+and receiving feedback.
+
+Important concepts:
+
+- Agent
+- Environment
+- Action
+- Reward
+- State
+
+
+## 6. Python Libraries
+
+Python provides many libraries
+for machine learning development.
+
+Important libraries:
+
+- NumPy
+- Pandas
+- Matplotlib
+- Seaborn
+- Scikit-learn
+- TensorFlow
+- PyTorch
+
+
+## 7. Loading a Dataset
+
+Pandas is commonly used
+to load and analyze datasets.
+
+Example:
+
+```python
+import pandas as pd
+
+data = pd.read_csv("data.csv")
+
+print(data.head())
+print(data.shape)
+print(data.info())
+```
+
+
+## 8. Splitting the Dataset
+
+A dataset is commonly divided into:
+
+- Training data
+- Testing data
+
+Training data is used
+to teach the model.
+
+Testing data is used
+to evaluate its performance.
+
+Example:
+
+```python
+from sklearn.model_selection import train_test_split
+
+X = data.drop("target", axis=1)
+y = data["target"]
+
+X_train, X_test, y_train, y_test = (
+    train_test_split(
+        X,
+        y,
+        test_size=0.2,
+        random_state=42
+    )
+)
+```
+
+
+## 9. Training a Machine Learning Model
+
+Scikit-learn provides algorithms
+for building machine learning models.
+
+Example:
+
+```python
+from sklearn.linear_model import LinearRegression
+
+model = LinearRegression()
+
+model.fit(X_train, y_train)
+```
+
+
+## 10. Making Predictions
+
+After training,
+the model can predict new values.
+
+Example:
+
+```python
+predictions = model.predict(X_test)
+
+print(predictions)
+```
+
+
+## 11. Model Evaluation
+
+Model evaluation helps us understand
+how well a model performs.
+
+Common evaluation metrics:
+
+- Accuracy
+- Precision
+- Recall
+- F1 Score
+- Mean Squared Error
+- R-squared

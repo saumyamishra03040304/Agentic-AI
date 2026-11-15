@@ -1,0 +1,210 @@
+# TEACH YOUR AI ASSISTANT TO READ FILES
+from openai import OpenAI
+from dotenv import load_dotenv
+import os
+from tool_manager import execute_tool
+from tools import read_text_files
+# load configuration from the .env file
+load_dotenv()
+
+roles = {
+    "1": "You are a friendly school teacher. Explain every concept using simple language and real-life examples.",
+
+    "2": "You are a senior Python developer. Explain programming concepts clearly and always include Python examples.",
+
+    "3": "You are an experienced travel guide. Recommend places, food, transportation and travel tips.",
+
+    "4": "You are a motivational coach. Encourage the user and give practical advice with a positive attitude.",
+
+    "5": "You are a professional interviewer. Ask one interview question at a time and provide feedback after each answer."
+}
+
+
+#create a client that communicates with ollama
+client = OpenAI(
+    base_url = os.getenv("BASE_URL"),
+    api_key = os.getenv("API_KEY")
+)
+print("="*40)
+print("  My Assistant")
+print("="*40)
+
+print("\nChoose Your Assistant\n")
+print("1. Teacher")
+print("2. Python Expert")
+print("3. Travel Guide")
+print("4. Motivational Coach")
+print("5. Interviewer")
+
+choice = input("\nEnter your choice:")
+Messages = [
+    {
+        "role":"system",
+         "content":roles.get(choice, "You are a helpful AI assistant") 
+        # 2nd argument tab use hoga agar user koi galat choice karle joki present hi na ho like 99 tab AI normal assistant ki tarah behave karega
+    }
+]
+while True:
+    user_input = input("\nYou: ")
+    text = user_input.lower()
+
+    if text.startswith("summarize"):
+        fileName = user_input[10:].strip()
+        file_content = read_text_files("data/"+fileName)
+        prompt = f"""
+        Summarize the following document
+
+        Document:
+
+        {file_content}
+         """
+        response = client.chat.completions.create(
+            model = os.getenv("MODEL"),
+            messages=[
+
+        {
+            "role":"system",
+            "content":"You are a helpful assistant."
+        },
+
+        {
+            "role":"user",
+            "content":prompt
+        }
+
+        ]
+
+        )
+
+        print(response.choices[0].message.content)
+        continue
+
+    if text.startswith("explain"):
+        fileName = user_input[8:].strip()
+        file_content = read_text_files(
+        "data/" + fileName
+        )
+
+        prompt = f"""
+        Explain the following document.
+
+        Document:
+
+        {file_content}
+        """
+
+        response = client.chat.completions.create(
+
+        model=os.getenv("MODEL"),
+
+        messages=[
+
+        {
+            "role":"system",
+            "content":"You are a helpful assistant."
+        },
+
+        {
+            "role":"user",
+            "content":prompt
+        }
+
+        ]
+
+        )
+
+        print(response.choices[0].message.content)
+        continue
+
+    if text.startswith("ask"):
+        parts = user_input.split(maxsplit=2)
+        #print(parts)
+        fileName = parts[1]
+        question = parts[2]
+
+        file_content = read_text_files(
+        "data/" + fileName
+        )
+
+        prompt = f"""
+You are given a document.
+
+Answer the user's question using
+only the information present
+in the document.
+
+If the answer is not available,
+say:
+'I couldn't find that information
+in the document.'
+
+Document:
+
+{file_content}
+
+Question:
+
+{question}
+"""
+
+
+
+        response = client.chat.completions.create(
+
+        model=os.getenv("MODEL"),
+
+        messages=[
+
+        {
+            "role":"system",
+            "content":"You are a helpful assistant."
+        },
+
+        {
+            "role":"user",
+            "content":prompt
+        }
+
+        ]
+
+        )
+
+        print(response.choices[0].message.content)
+        continue
+
+
+    
+
+
+   
+      
+
+        
+    tool_result = execute_tool(user_input)
+    if tool_result:
+        print("\nAI: ",tool_result)
+        continue
+    Messages.append(
+        {
+            "role":"user",
+            "content":user_input
+        }
+    )
+    if user_input.lower()=="quit":
+        print("\nAI: Bye")
+        break
+    else:
+        response = client.chat.completions.create(
+    model = os.getenv("MODEL"),
+    messages = Messages
+)
+     # display response
+    ai_reply = response.choices[0].message.content
+    print("AI: "+ai_reply)
+    Messages.append(
+        {
+            "role":"assistant",
+            "content":ai_reply
+        }
+    )
+
